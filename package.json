@@ -1,0 +1,33 @@
+{
+  "name": "architech",
+  "private": true,
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "node scripts/dev.mjs --no-android",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:e2e": "yarn workspace @architech/web test:e2e",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "db:migrate": "yarn workspace @architech/db migrate",
+    "db:generate": "yarn workspace @architech/db generate",
+    "android:apk": "node scripts/build-apk.mjs",
+    "services:up": "docker compose up -d --wait",
+    "services:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@types/node": "24",
+    "turbo": "2.11.9",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "identities": [
+    {
+      "name": "architech",
+      "credentials": [
+        { "accessKey": "architech", "secretKey": "architech-secret" }
+      ],
+      "actions": ["Admin", "Read", "Write", "List", "Tagging"]
+    }
+  ]
+}

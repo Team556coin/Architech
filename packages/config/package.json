@@ -1,0 +1,10 @@
+{
+  "name": "@architech/config",
+  "version": "0.0.0",
+  "private": true,
+  "files": ["theme.css", "tsconfig.base.json"],
+  "exports": {
+    "./theme.css": "./theme.css",
+    "./tsconfig.base.json": "./tsconfig.base.json"
+  }
+}

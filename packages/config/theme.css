@@ -1,0 +1,16 @@
+/* Architech brand tokens (Tailwind v4 theme). */
+@theme {
+  --color-cream: #faf7f2;
+  --color-sand: #f1ece3;
+  --color-line: #e5dfd4;
+  --color-forest: #1f4d3a;
+  --color-forest-dark: #173a2c;
+  --color-forest-soft: #e3ece6;
+  --color-coral: #f07a5a;
+  --color-coral-soft: #fde8e1;
+  --color-ink: #1d2a24;
+  --color-muted: #6b746f;
+  --color-amber-soft: #fdf1dc;
+  --font-sans: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-xl2: 1.25rem;
+}

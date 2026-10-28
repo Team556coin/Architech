@@ -1,0 +1,40 @@
+# Fly.io production deploy. Secrets (set once with `fly secrets set ...`):
+#   DATABASE_URL (Managed Postgres), BETTER_AUTH_SECRET, OPENROUTER_API_KEY,
+#   AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ENDPOINT_URL_S3,
+#   AWS_REGION, BUCKET_NAME (provided by Fly Tigris)
+app = "homeredo"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  APP_URL = "https://homeredo.fly.dev"
+  AI_PROVIDER = "openrouter"
+  S3_BUCKET = "architech"
+  WORKER_CONCURRENCY = "2"
+  NODE_ENV = "production"
+  S3_CREATE_BUCKET = "false"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  # Edits are processed in the background on the app machine, so keep one running.
+  min_machines_running = 1
+
+[deploy]
+  strategy = "rolling"
+
+  [[http_service.checks]]
+    grace_period = "30s"
+    interval = "15s"
+    timeout = "5s"
+    method = "GET"
+    path = "/api/health"
+
+[[vm]]
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1
